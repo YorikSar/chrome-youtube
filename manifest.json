@@ -1,0 +1,31 @@
+{
+  "name": "Chrome YouTube fixes",
+  "version": "0.1",
+  "manifest_version": 3,
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "redirect_shorts",
+        "enabled": true,
+        "path": "redirect-shorts.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/watch?v=*"
+      ],
+      "js": [
+        "set-quality.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ]
+}
